@@ -1,5 +1,7 @@
 package utils
 
+import "math"
+
 func Swap(arr []int, i int, j int) {
 	var tmp = arr[i]
 	arr[i] = arr[j]
@@ -14,4 +16,8 @@ func Max(arr []int) int {
 		}
 	}
 	return max
+}
+
+func GetDigitAtIndex(number int, digitIndex int) int {
+	return int(number /  int(math.Pow(10, float64(digitIndex - 1))) % 10)
 }

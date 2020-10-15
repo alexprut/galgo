@@ -25,3 +25,20 @@ func CountingSort(arr []int) []int {
 
 	return result
 }
+
+func CountingSortDigitIndex(arr []int, digitIndex int) []int {
+	var result = make([]int, len(arr))
+	c := [10]int{}
+	for _, element := range arr {
+		c[utils.GetDigitAtIndex(element, digitIndex)]++
+	}
+	for i := 1; i < len(c); i++ {
+		c[i] += c[i - 1]
+	}
+	for j := len(arr) - 1; j >= 0; j-- {
+		result[c[utils.GetDigitAtIndex(arr[j], digitIndex)] - 1] = arr[j]
+		c[utils.GetDigitAtIndex(arr[j], digitIndex)]--
+	}
+
+	return result
+}

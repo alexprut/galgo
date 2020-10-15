@@ -4,6 +4,10 @@ type Stack struct {
 	list LinkedList
 }
 
+func NewStack() Stack {
+	return Stack{list: NewLinkedList()}
+}
+
 func (stack *Stack) Peek() interface{} {
 	tmp := stack.Pop()
 	stack.Push(tmp)
@@ -13,6 +17,7 @@ func (stack *Stack) Peek() interface{} {
 func (stack *Stack) Push(value interface{}) {
 	stack.list.InsertFront(value)
 }
+
 func (stack *Stack) Size() int {
 	return stack.list.Size()
 }

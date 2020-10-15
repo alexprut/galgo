@@ -1,35 +1,38 @@
 package datastructures
 
-type LikedList struct {
-	head *node
+type LinkedList struct {
+	head *listnode
 	size int
 }
+func NewLinkedList() LinkedList {
+	return LinkedList{nil, 0}
+}
 
-func (list *LikedList) InsertFront(value interface{}) {
-	list.head = &node{value, list.head}
+func (list *LinkedList) InsertFront(value interface{}) {
+	list.head = &listnode{value, list.head}
 	list.size++
 }
 
-func (list *LikedList) RemoveFront() interface{} {
+func (list *LinkedList) RemoveFront() interface{} {
 	list.size--
 	tmp := list.head
 	list.head = list.head.next
 	return tmp.value
 }
 
-func (list *LikedList) Head() *node {
+func (list *LinkedList) Head() *listnode {
 	return list.head
 }
 
-func (list *LikedList) Empty() bool {
+func (list *LinkedList) Empty() bool {
 	return list.size == 0
 }
 
-func (list *LikedList) Size() int {
+func (list *LinkedList) Size() int {
 	return list.size
 }
 
-type node struct {
+type listnode struct {
 	value interface{}
-	next  *node
+	next  *listnode
 }

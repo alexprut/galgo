@@ -1,7 +1,5 @@
 package datastructures
 
-package datastructures
-
 type DoubleLikedList struct {
 	head *node
 	tail *node
