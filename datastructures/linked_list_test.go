@@ -5,7 +5,7 @@ import (
 )
 
 func TestShouldSort(t *testing.T) {
-	linkedList := LikedList{}
+	linkedList := LinkedList{}
 
 	if linkedList.Head() != nil {
 		t.Errorf("Expected %v, actual %v", nil, linkedList.Head())
