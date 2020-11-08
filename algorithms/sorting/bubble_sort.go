@@ -1,7 +1,7 @@
 package sorting
 
 import (
-	"../utils"
+	"galgo/algorithms/utils"
 )
 
 func BubbleSort(arr []int) []int {

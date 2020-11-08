@@ -1,6 +1,6 @@
 package sorting
 
-import "../utils"
+import "galgo/algorithms/utils"
 
 func InsertionSort(arr []int) []int {
 	for i := 1; i < len(arr); i++ {

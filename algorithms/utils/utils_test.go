@@ -19,7 +19,7 @@ func TestSwap(t *testing.T) {
 func TestMax(t *testing.T) {
 	var arr = []int{1, 2, 0, 9, 5}
 
-	if 9 == Max(arr) {
+	if 9 != Max(arr) {
 		t.Errorf("Expected %v, actual %v", 9, Max(arr))
 	}
 }

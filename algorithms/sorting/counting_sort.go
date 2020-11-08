@@ -1,8 +1,6 @@
 package sorting
 
-import (
-	"../utils"
-)
+import "galgo/algorithms/utils"
 
 func CountingSort(arr []int) []int {
 	if len(arr) == 0 {

@@ -1,6 +1,6 @@
 package sorting
 
-import "../utils"
+import "galgo/algorithms/utils"
 
 func QuickSort(arr []int, start int, end int) {
 	if start < end {

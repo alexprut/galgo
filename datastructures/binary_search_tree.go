@@ -35,7 +35,7 @@ type BinarySearchTree struct {
 	size int
 }
 
-func (bst *BinarySearchTree) New() BinarySearchTree {
+func NewBinarySearchTree() BinarySearchTree {
 	return BinarySearchTree{nil, 0}
 }
 
