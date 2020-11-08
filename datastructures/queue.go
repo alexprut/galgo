@@ -4,6 +4,10 @@ type Queue struct {
 	list DoubleLikedList
 }
 
+func NewQueue() Queue {
+	return Queue{NewDoubleLinkedList()}
+}
+
 func (queue *Queue) Empty() bool {
 	return queue.list.Empty()
 }
