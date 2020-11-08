@@ -6,6 +6,10 @@ type DoubleLikedList struct {
 	size int
 }
 
+func NewDoubleLinkedList() DoubleLikedList {
+	return DoubleLikedList{nil, nil, 0}
+}
+
 func (list *DoubleLikedList) InsertFront(value interface{}) {
 	node := &node{value, list.Head(), nil}
 	if list.head == nil {
@@ -34,6 +38,8 @@ func (list *DoubleLikedList) InsertBack(value interface{}) {
 }
 
 func (list *DoubleLikedList) RemoveFront() interface{} {
+	list.size--
+
 	if list.head == list.tail {
 		node := list.head
 		list.head = nil
@@ -44,7 +50,6 @@ func (list *DoubleLikedList) RemoveFront() interface{} {
 	node := list.head
 	list.head = node.next
 	list.head.prev = nil
-	list.size--
 	return node.value
 }
 
