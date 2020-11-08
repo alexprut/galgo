@@ -1,20 +1,22 @@
 package datastructures
 
 type Trie struct {
-	root trienode
+	root *trienode
 }
 
 func NewTrie() Trie {
-	return Trie{newTrieNode()}
+	node := newTrieNode()
+	return Trie{&node}
 }
 
 func (trie *Trie) Insert(elem string) {
 	if len(elem) > 0 {
-		tmp := trie.root
+		var tmp = trie.root
 		for i := 0; i < len(elem); i++ {
 			tmp.size++
 			if _, ok := tmp.children[string(elem[i])]; !ok {
-				tmp.children[string(elem[i])] = newTrieNode()
+				node := newTrieNode()
+				tmp.children[string(elem[i])] = &node
 			}
 			tmp = tmp.children[string(elem[i])]
 		}
@@ -83,7 +85,7 @@ func (trie *Trie) contains(elem string) *trienode {
 			}
 			tmp = tmp.children[string(elem[i])]
 		}
-		return &tmp
+		return tmp
 	}
 
 	return nil
@@ -92,9 +94,9 @@ func (trie *Trie) contains(elem string) *trienode {
 type trienode struct {
 	isEndOfWord bool
 	size        int
-	children    map[string]trienode
+	children    map[string]*trienode
 }
 
 func newTrieNode() trienode {
-	return trienode{false, 0, make(map[string]trienode)}
+	return trienode{false, 0, make(map[string]*trienode)}
 }
