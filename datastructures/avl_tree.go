@@ -10,6 +10,10 @@ type AVLTree struct {
 	size int
 }
 
+func NewAVLTree() AVLTree {
+	return AVLTree{nil, 0}
+}
+
 func (avl *AVLTree) Root() *avlnode {
 	return avl.root
 }
