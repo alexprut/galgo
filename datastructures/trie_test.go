@@ -1,6 +1,7 @@
 package datastructures
 
 import (
+	"reflect"
 	"testing"
 )
 
@@ -51,14 +52,20 @@ func AssertEquals(t *testing.T, expected interface{}, actual interface{}) {
 	}
 }
 
-func AssertTrue(t *testing.T, actual bool)  {
+func AssertTrue(t *testing.T, actual bool) {
 	if !actual {
 		t.Errorf("Expected %v, actual %v", true, actual)
 	}
 }
 
-func AssertFalse(t *testing.T, actual bool)  {
+func AssertFalse(t *testing.T, actual bool) {
 	if actual {
 		t.Errorf("Expected %v, actual %v", false, actual)
+	}
+}
+
+func AssertArrayEquals(t *testing.T, expected []interface{}, actual []interface{}) {
+	if !reflect.DeepEqual(expected, actual) {
+		t.Errorf("Expected %v, actual %v", expected, actual)
 	}
 }
