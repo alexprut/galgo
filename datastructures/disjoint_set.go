@@ -4,6 +4,10 @@ type DisjointSet struct {
 	sets map[interface{}]*Element
 }
 
+func NewDisjointSet() DisjointSet {
+	return DisjointSet{make(map[interface{}]*Element, 0)}
+}
+
 func (dj *DisjointSet) MakeSet(value interface{}) *Element {
 	var e = NewElement(value)
 	dj.sets[value] = &e
