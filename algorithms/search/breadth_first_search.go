@@ -30,3 +30,27 @@ func ShortestPath(adj [][]int, start int) []int {
 
 	return shortestPaths
 }
+
+func PredecessorSubgraph(adj [][]int, start int) []int {
+	parent := make([]int, len(adj))
+	isVisited := make([]bool, len(adj))
+	for i := 0; i < len(parent); i++ {
+		parent[i] = math.MaxInt64
+	}
+	queue := datastructures.NewQueue()
+	queue.Enqueue(start)
+	isVisited[start] = true
+	for !queue.Empty() {
+		edge := queue.Dequeue().(int)
+		for i := 0; i < len(adj[edge]); i++ {
+			y := adj[edge][i]
+			if !isVisited[y] {
+				isVisited[y] = true
+				parent[y] = edge
+				queue.Enqueue(y)
+			}
+		}
+	}
+
+	return parent
+}
