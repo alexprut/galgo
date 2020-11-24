@@ -113,7 +113,7 @@ func (it *IntervalTree) Find(low int, high int) *intervalNode {
 
 func (it *IntervalTree) FindNode(root *intervalNode, x *intervalNode) *intervalNode {
 	tmp := root
-	for tmp != nil && !it.DoOverlap(tmp, x) {
+	for tmp != nil && !DoOverlap(tmp, x) {
 		if tmp.left != nil && tmp.left.max >= x.low {
 			tmp = tmp.left
 		} else {
@@ -133,7 +133,7 @@ func (it *IntervalTree) FindAllNode(root *intervalNode, x *intervalNode) []*inte
 	if root == nil {
 		return intervals
 	}
-	if it.DoOverlap(root, x) {
+	if DoOverlap(root, x) {
 		intervals = append(intervals, root)
 	}
 	if x.low <= root.max {
@@ -150,7 +150,7 @@ func (it *IntervalTree) FindAllNode(root *intervalNode, x *intervalNode) []*inte
 	return intervals
 }
 
-func (it *IntervalTree) DoOverlap(a *intervalNode, b *intervalNode) bool {
+func DoOverlap(a *intervalNode, b *intervalNode) bool {
 	return a.low <= b.high && b.low <= a.high
 }
 
