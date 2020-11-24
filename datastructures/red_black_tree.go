@@ -1,5 +1,7 @@
 package datastructures
 
+import "flag"
+
 type RedBlackTree struct {
 	root *rbtnode
 	size int
@@ -293,4 +295,8 @@ type rbtnode struct {
 	parent *rbtnode
 	left   *rbtnode
 	right  *rbtnode
+}
+
+func newrbtreenode(value interface{}) *rbtnode {
+	return &rbtnode{value, false, nil, nil, nil}
 }
